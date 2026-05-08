@@ -6,6 +6,32 @@
     <title>GLPura GLP-1® - Nachtfettverbrennung</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="custom.css">
+
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. 获取当前页面 URL 中的所有参数
+    var queryString = window.location.search;
+    
+    if (queryString) {
+        // 2. 找到页面上所有的 <a> 标签链接
+        var links = document.getElementsByTagName('a');
+        
+        for (var i = 0; i < links.length; i++) {
+            var href = links[i].getAttribute('href');
+            
+            // 3. 排除掉空链接、锚点链接(#)和 javascript 脚本
+            if (href && href !== '#' && !href.startsWith('javascript:')) {
+                // 判断链接里是否已经有了 '?'
+                var connector = href.indexOf('?') !== -1 ? '&' : '?';
+                
+                // 将当前页面的参数拼接到按钮链接后面
+                // 去掉 queryString 开头的 '?' 以免重复
+                links[i].setAttribute('href', href + connector + queryString.substring(1));
+            }
+        }
+    }
+});
+</script>
   
 </head><body data-new-gr-c-s-check-loaded="14.1277.0" data-gr-ext-installed=""><myflashextensionid id="pkomojeklgbndilokjedodpebdbekiod"></myflashextensionid>
 <style id="vvvebjs-styles"></style>
